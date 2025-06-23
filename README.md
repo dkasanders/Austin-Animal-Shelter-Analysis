@@ -8,7 +8,15 @@ Analyzed 10 years of intake and outtake adoption data from the Austin Animal She
 - Source: Austin Animal Shelter Data sourced on [Kaggle](https://www.kaggle.com/datasets/thedevastator/austin-animal-center-data?resource=download)
 - Time Range: Oct 2013 to Dec 2023
 - Contains two files, intake data and outtake data. Intake data includes attributes such as reason for inttake, time intaken, and animal attributes. Outtake data includes attributes such as outtake reason, time outtaken, and other animal attributes.
+## PowerBI Dashboard
 
+Overview Page:
+
+![Overview Dashboard](images/overview.png)
+
+Adoption Page:
+
+![Adoption Dashboard](images/adoption.png)
 ## Analysis
 - SQL queries to extract monthly intake/outtake counts, filter by animal type, etc.
 - Power BI dashboard with intake/outcome trends, intake/outtake types, adoption timing, adoption statistics by animal type, and more
