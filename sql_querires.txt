@@ -1,0 +1,78 @@
+SOME DATA:
+
+Getting distinct number of animals intaken:
+
+SELECT COUNT(DISTINCT animal_id) FROM animal_intake;
+
+N=141420
+
+Getting distinct number of animals outtaken:
+
+SELECT COUNT(DISTINCT animal_id) FROM animal_outtake;
+
+N=141347
+
+Getting distinct number of animals that have been both intaken and outtaken:
+
+SELECT COUNT(DISTINCT animal_outtake.animal_id) FROM animal_intake, animal_outtake where animal_intake.animal_id = animal_outtake.animal_id;
+
+N = 140533
+
+
+
+Earliest intake record:
+
+SELECT datetime FROM animal_intake ORDER BY datetime ASC LIMIT 1;
+
+10/01/2013 @ 07:51:00
+
+Earliest outtake record:
+
+SELECT datetime FROM animal_outtake ORDER BY datetime ASC LIMIT 1;
+
+10/01/2013 @ 09:31:00
+
+
+Latest intake record:
+
+SELECT datetime FROM animal_intake ORDER BY datetime DESC LIMIT 1;
+
+12/03/23 @ 13:58:00
+
+Latest outtake record:
+
+SELECT datetime FROM animal_outtake ORDER BY datetime DESC LIMIT 1;
+
+12/03/23 @ 16:00:00
+
+This dataset thus spans 10 years and 2 months.
+
+
+
+Net intake/outtake:
+
+SELECT
+	COALESCE(intake.monthyear, outtake.monthyear) AS monthyear,
+	COUNT(DISTINCT intake.animal_id) AS intake_count,
+	COUNT(DISTINCT outtake.animal_id) AS outtake_count
+FROM
+	animal_intake AS intake	
+FULL OUTER JOIN
+	animal_outtake as outtake
+ON
+	intake.monthyear = outtake.monthyear
+GROUP BY
+	COALESCE(intake.monthyear, outtake.monthyear)
+ORDER BY
+	monthyear;
+
+
+
+Getting animal type
+
+SELECT animal_type, month_year, COUNT(*)
+FROM (
+	SELECT DISTINCT animal_id, animal_type, month_year
+	FROM animal_intake
+) as unique_animals
+GROUP BY animal_type, month_year;
