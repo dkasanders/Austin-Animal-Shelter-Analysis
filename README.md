@@ -17,10 +17,12 @@ Overview Page:
 Adoption Page:
 
 ![Adoption Dashboard](images/adoption.png)
+## SQL Queries
+All SQL queries done can be seen [here.](sql_queries.txt) Additionally, data wrangling was also done to match each intake entry for an animal to a corresponding outtake entry in [this script](stay_length.ipynb)
 ## Analysis
 - SQL queries to extract monthly intake/outtake counts, filter by animal type, etc.
 - Power BI dashboard with intake/outcome trends, intake/outtake types, adoption timing, adoption statistics by animal type, and more
- 
+
 ## Key Insights
 - The top intake months are May, June, and October. This could signify extra staffing requirements for those months to ensure animals are processed at an acceptable rate.
 - An overwhelming majority (96%) of adopted pets are spayed/neutered due to Austin's mandatory spay/neuter policy.
